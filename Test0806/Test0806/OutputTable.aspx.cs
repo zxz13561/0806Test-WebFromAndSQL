@@ -34,9 +34,9 @@ namespace Test0806
                     TableCell cell = new TableCell();
                     if( j == 1)
                     {
-                        cell.Text = $"基數 : {i} </br>";
+                        cell.Text = "&ensp;" + $"基數 : {i} </br>";
                     }
-                    cell.Text += $"{i} x {j} = {j * i}    " + "</br>";
+                    cell.Text += "&ensp;" + $"{i} x {j} = {j * i}" + "&ensp;" + "</br>";
                     row.Cells.Add(cell);
                 }
                 this.Table1.Rows.Add(row);
