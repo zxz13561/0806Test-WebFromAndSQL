@@ -17,21 +17,28 @@ namespace Test0806
             int baseNum;
             int colNum;
 
-            if (int.TryParse(str_base, out baseNum))
+            if (!int.TryParse(str_base, out baseNum))
             {
-                this.lblBase.Text = baseNum.ToString();
+                Response.Redirect("Default.aspx");
             }
-            if (int.TryParse(str_col, out colNum))
+            if (!int.TryParse(str_col, out colNum))
             {
-                this.lblCol.Text = colNum.ToString();
+                Response.Redirect("Default.aspx");
             }
 
-            for(int i = 1; i <= colNum; i++)
+            for (int j = 1; j <= colNum; j++)
             {
                 TableRow row = new TableRow();
-                TableCell cell = new TableCell();
-                cell.Text = $"{baseNum} x {i} = {baseNum*i}";
-                row.Cells.Add(cell);
+                for (int i = 1; i <= baseNum; i++)
+                { 
+                    TableCell cell = new TableCell();
+                    if( j == 1)
+                    {
+                        cell.Text = $"基數 : {i} </br>";
+                    }
+                    cell.Text += $"{i} x {j} = {j * i}    " + "</br>";
+                    row.Cells.Add(cell);
+                }
                 this.Table1.Rows.Add(row);
             }
         }
