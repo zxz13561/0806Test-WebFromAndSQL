@@ -24,7 +24,7 @@ namespace Test0806
                 int coefiNum = Convert.ToInt32(this.txtColNumber.Text);
 
                 // by pass for testing
-                //DBFunction.DBHelper.CreateData(baseNum, coefiNum);
+                DBFunction.DBHelper.CreateData(baseNum, coefiNum);
                 Response.Redirect("OutputTable.aspx");
             }
             else
