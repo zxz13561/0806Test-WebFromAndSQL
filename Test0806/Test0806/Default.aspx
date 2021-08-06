@@ -10,7 +10,7 @@
             </td>
         </tr>
         <tr>
-            <td>系數 : </td>
+            <td>係數 : </td>
             <td>
                 <asp:TextBox runat="server" ID="txtColNumber"/>
             </td>
@@ -23,6 +23,13 @@
         </tr>
     </table>
     <asp:PlaceHolder runat="server" ID="plcMsg" visible="false">
-        Wrong Input!!
+        <p style="color:red">
+            請輸入基數與係數!
+        </p>
+    </asp:PlaceHolder>
+        <asp:PlaceHolder runat="server" ID="plcIntMsg" visible="false">
+        <p style="color:red">
+            請輸入正確數字!!
+        </p>
     </asp:PlaceHolder>
 </asp:Content>

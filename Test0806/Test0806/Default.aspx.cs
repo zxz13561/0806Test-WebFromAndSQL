@@ -11,6 +11,7 @@ namespace Test0806
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+
         }
 
         protected void btnCreate_Click(object sender, EventArgs e)
@@ -20,10 +21,22 @@ namespace Test0806
                 this.Session["baseNum"] = this.txtBaseNumber.Text;
                 this.Session["colNum"] = this.txtColNumber.Text;
 
-                int baseNum = Convert.ToInt32(this.txtBaseNumber.Text);
-                int coefiNum = Convert.ToInt32(this.txtColNumber.Text);
+                int baseNum;
+                int coefiNum;
 
-                // by pass for testing
+                // check try pase
+                if (!int.TryParse(this.txtBaseNumber.Text, out baseNum))
+                {
+                    this.plcIntMsg.Visible = true;
+                    return;
+                }
+                if (!int.TryParse(this.txtColNumber.Text, out coefiNum))
+                {
+                    this.plcIntMsg.Visible = true;
+                    return;
+                }
+
+                // by pass if is testing
                 DBFunction.DBHelper.CreateData(baseNum, coefiNum);
                 Response.Redirect("OutputTable.aspx");
             }

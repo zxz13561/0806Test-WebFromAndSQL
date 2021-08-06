@@ -17,15 +17,17 @@ namespace Test0806
             int baseNum;
             int colNum;
 
+            // to int 
             if (!int.TryParse(str_base, out baseNum))
             {
-                Response.Redirect("Default.aspx");
+                this.plcTableMsg.Visible = true;
             }
-            if (!int.TryParse(str_col, out colNum))
+            if (!int.TryParse(str_col, out colNum)) 
             {
-                Response.Redirect("Default.aspx");
+                this.plcTableMsg.Visible = true;
             }
 
+            // output
             for (int j = 1; j <= colNum; j++)
             {
                 TableRow row = new TableRow();
@@ -41,6 +43,11 @@ namespace Test0806
                 }
                 this.Table1.Rows.Add(row);
             }
+        }
+
+        protected void btnReturn_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Default.aspx");
         }
     }
 }
